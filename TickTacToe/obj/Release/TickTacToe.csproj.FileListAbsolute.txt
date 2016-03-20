@@ -1,0 +1,6 @@
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\bin\Release\TickTacToe.exe.config
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\bin\Release\TickTacToe.exe
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\bin\Release\TickTacToe.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\obj\Release\TickTacToe.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\obj\Release\TickTacToe.exe
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\TickTacToe\TickTacToe\obj\Release\TickTacToe.pdb
