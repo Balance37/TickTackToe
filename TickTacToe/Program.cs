@@ -17,6 +17,8 @@ namespace TickTacToe
             int[] positionB = { 0, 0, 0, 0, 0 };
             int userAIndex = 0;
             int userBIndex = 0;
+
+            Console.SetWindowSize(70, 52);//Set window size so that users can see the blank play table
             
             Console.Title = "Tick Tac Toe";
             Console.WriteLine("Please enter the first player's name (will have play symbol \"O\"): ");
@@ -30,6 +32,8 @@ namespace TickTacToe
             Console.WriteLine(" ---------");
             Console.WriteLine(" 7 | 8 | 9");
             Console.WriteLine();
+            
+            //Set blank play table and set cursor back to original position
             int left = Console.CursorLeft;
             int top = Console.CursorTop;
             Console.SetCursorPosition(0, 45);
@@ -53,22 +57,21 @@ namespace TickTacToe
 
                         int p1 = Convert.ToInt32(pA);
                            
-                   
-                    //ensure(s) that Player 1 enteres validatble integer 
+                        //ensure(s) that Player 1 enteres validatble integer (from 1 to 9)
                         if (p1 > 9 | p1 < 1)
-                    {
-                        Console.WriteLine("Please enter a number betwenn 1 and 9");
-                        i--;
-                        continue;
-                    }
-                            //it is valid, now check if the number has already been played
+                        {
+                            Console.WriteLine("Please enter a number betwenn 1 and 9");
+                            i--;
+                            continue;
+                        }
+                        //if is valid, now check if the number has already been played
                         else
                         {
                             bool continueTopLoop = false;
 
                             for (int index = 0; index < 5; index++)
                             {
-                                if(ConvertNumber(p1)==positionA[index])
+                                if(ConvertNumber(p1)==positionA[index]|ConvertNumber(p1)==positionB[index])
                                 {
                                     Console.WriteLine("Please enter a number different from numbers that had been entered");
                                     continueTopLoop = true;
@@ -95,7 +98,7 @@ namespace TickTacToe
                     checkIfWin(firstPlayer, positionA);
 
                     }
-                    catch(Exception e)
+                    catch(Exception)
                     {
                         Console.WriteLine("Please check your input is integer");
                         i--;
@@ -131,7 +134,7 @@ namespace TickTacToe
 
                             for (int index = 0; index < 5; index++)
                             {
-                                if (ConvertNumber(p2) == positionB[index])
+                                if (ConvertNumber(p2) == positionB[index]|ConvertNumber(p2)== positionA[index])
                                 {
                                     Console.WriteLine("Please enter a number different from numbers that had been entered");
                                     continueTopLoop = true;
@@ -155,10 +158,10 @@ namespace TickTacToe
                             userBIndex++;
                         }
 
-                        checkIfWin(firstPlayer, positionB);
+                        checkIfWin(secondPlayer, positionB);
 
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         Console.WriteLine("Please check your input is integer");
                         i--;
@@ -173,6 +176,8 @@ namespace TickTacToe
 
         }
 
+        //Check if the player wins or not by adding up every three of his/her inputs' represented vales
+        //If the sum equals to certian number, the player wins.
         static void checkIfWin(string playerName, int[] position)
         {
             int sum = 0;
@@ -199,6 +204,7 @@ namespace TickTacToe
             }
         }
 
+        // Determine where "X" or "O" symble shoud be put
         static int GetLeft(int position)
         {
             switch(position)
@@ -226,6 +232,7 @@ namespace TickTacToe
             }
         }
 
+        // Determine where "X" or "O" symble shoud be put
         static int GetTop(int position)
         {
             if(position==1|position==2|position==3)
@@ -241,6 +248,8 @@ namespace TickTacToe
                 return 49;
             }
         }
+
+        //Convert position to integer(value) that represent the position
         static int ConvertNumber(int position)
         {
             switch (position)
